@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Scripts/GUI/GUI_2Players.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Font/UI_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Font/UI_font_Big.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "VanishTimer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Vertical/TimerContainer/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="GUI_2Players" type="MarginContainer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="VanishAnimations" type="AnimationPlayer" parent="."]
+anims/VanishTimer = SubResource( 1 )
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_constants/separation = 100
+
+[node name="ScoreText" type="HBoxContainer" parent="Vertical"]
+editor/display_folded = true
+margin_right = 1920.0
+margin_bottom = 63.0
+custom_constants/separation = 950
+alignment = 1
+
+[node name="Player1" type="Label" parent="Vertical/ScoreText"]
+margin_left = 453.0
+margin_right = 485.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+
+[node name="Player2" type="Label" parent="Vertical/ScoreText"]
+margin_left = 1435.0
+margin_right = 1467.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+
+[node name="PauseContainer" type="CenterContainer" parent="Vertical"]
+margin_top = 163.0
+margin_right = 1920.0
+margin_bottom = 163.0
+
+[node name="PauseText" type="Label" parent="Vertical/PauseContainer"]
+visible = false
+margin_left = 577.0
+margin_top = -125.0
+margin_right = 1342.0
+margin_bottom = 124.0
+custom_fonts/font = ExtResource( 3 )
+text = "PAUSED"
+
+[node name="TimerContainer" type="CenterContainer" parent="Vertical"]
+margin_top = 263.0
+margin_right = 1920.0
+margin_bottom = 512.0
+
+[node name="Timer" type="Timer" parent="Vertical/TimerContainer"]
+one_shot = true
+
+[node name="Text" type="Label" parent="Vertical/TimerContainer"]
+margin_left = 960.0
+margin_right = 960.0
+margin_bottom = 249.0
+custom_fonts/font = ExtResource( 3 )
+[connection signal="animation_finished" from="VanishAnimations" to="." method="_on_VanishAnimations_animation_finished"]
+[connection signal="timeout" from="Vertical/TimerContainer/Timer" to="." method="_on_RestartTimer_timeout"]

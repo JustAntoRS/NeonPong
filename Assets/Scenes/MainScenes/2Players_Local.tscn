@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Scenes/ResourceScenes/GameManager.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/Game/Scenario/background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Net.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Particles/ScoreAreaRed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Particles/ScoreAreaBlue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Area.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Balls/2PlayersBall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Players/Player2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Players/Player1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/HMargin.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/UI/GUI_2Players.tscn" type="PackedScene" id=11]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource( 1 )]
+pause_mode = 2
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 1.92, 1.08 )
+texture = ExtResource( 2 )
+
+[node name="Net" parent="." instance=ExtResource( 3 )]
+
+[node name="Particles" type="Node2D" parent="."]
+position = Vector2( 0, 540 )
+
+[node name="ScoreAreaRed" parent="Particles" instance=ExtResource( 4 )]
+position = Vector2( 1920, 0 )
+rotation = 3.14159
+
+[node name="ScoreAreaBlue" parent="Particles" instance=ExtResource( 5 )]
+
+[node name="Area" parent="." instance=ExtResource( 6 )]
+
+[node name="2PlayersBall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 960, 540 )
+
+[node name="Players" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Player2" parent="Players" instance=ExtResource( 8 )]
+position = Vector2( 1750, 539 )
+
+[node name="Player1" parent="Players" instance=ExtResource( 9 )]
+position = Vector2( 200, 540 )
+
+[node name="ScreenMargins" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="HMarginTop" parent="ScreenMargins" instance=ExtResource( 10 )]
+
+[node name="HMarginBot" parent="ScreenMargins" instance=ExtResource( 10 )]
+position = Vector2( 0, 1080 )
+
+[node name="GUI_2Players" parent="." instance=ExtResource( 11 )]
+margin_right = 1900.0
+margin_bottom = 1060.0
+[connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
+[connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/Player2" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Sprites/Game/Particles/beam_particle.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0332103, 1 )
+colors = PoolColorArray( 1, 0.11335, 0.197793, 1, 0.621342, 0.032867, 0.102704, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 520, 1 )
+flag_disable_z = true
+gravity = Vector3( 98, 0, 0 )
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+scale_random = 0.5
+color_ramp = SubResource( 2 )
+
+[node name="ScoreAreaRed" type="Particles2D"]
+amount = 20
+lifetime = 2.0
+preprocess = 3.0
+randomness = 0.46
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
