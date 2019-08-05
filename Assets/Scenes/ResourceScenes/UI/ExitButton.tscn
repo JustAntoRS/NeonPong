@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Font/UI_font.tres" type="DynamicFont" id=1]
+
+[node name="ExitButton" type="Button"]
+margin_top = 178.0
+margin_right = 199.0
+margin_bottom = 247.0
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"

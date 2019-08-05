@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scenes/ResourceScenes/GameManager.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Sprites/Game/Scenario/background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Net.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/Particles/ScoreAreaRed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/Particles/ScoreAreaBlue.tscn" type="PackedScene" id=5]
@@ -17,10 +17,7 @@
 [node name="GameManager" parent="." instance=ExtResource( 1 )]
 pause_mode = 2
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 960, 540 )
-scale = Vector2( 1.92, 1.08 )
-texture = ExtResource( 2 )
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="Net" parent="." instance=ExtResource( 3 )]
 
@@ -60,7 +57,7 @@ position = Vector2( 0, 1080 )
 margin_right = 1900.0
 margin_bottom = 1060.0
 [connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
-[connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="Players/Player2" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]

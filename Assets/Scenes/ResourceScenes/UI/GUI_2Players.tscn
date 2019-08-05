@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Scripts/GUI/GUI_2Players.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Font/UI_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Font/UI_font_Big.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/UI/ExitButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "VanishTimer"
@@ -38,7 +39,6 @@ margin_bottom = 1080.0
 custom_constants/separation = 100
 
 [node name="ScoreText" type="HBoxContainer" parent="Vertical"]
-editor/display_folded = true
 margin_right = 1920.0
 margin_bottom = 63.0
 custom_constants/separation = 950
@@ -59,23 +59,31 @@ custom_fonts/font = ExtResource( 2 )
 text = "0"
 
 [node name="PauseContainer" type="CenterContainer" parent="Vertical"]
+visible = false
 margin_top = 163.0
 margin_right = 1920.0
-margin_bottom = 163.0
+margin_bottom = 485.0
 
-[node name="PauseText" type="Label" parent="Vertical/PauseContainer"]
-visible = false
+[node name="VerticalContainer" type="VBoxContainer" parent="Vertical/PauseContainer"]
 margin_left = 577.0
-margin_top = -125.0
 margin_right = 1342.0
-margin_bottom = 124.0
+margin_bottom = 322.0
+
+[node name="PauseText" type="Label" parent="Vertical/PauseContainer/VerticalContainer"]
+margin_right = 765.0
+margin_bottom = 249.0
 custom_fonts/font = ExtResource( 3 )
 text = "PAUSED"
 
+[node name="ExitButton" parent="Vertical/PauseContainer/VerticalContainer" instance=ExtResource( 4 )]
+margin_top = 253.0
+margin_right = 765.0
+margin_bottom = 322.0
+
 [node name="TimerContainer" type="CenterContainer" parent="Vertical"]
-margin_top = 263.0
+margin_top = 163.0
 margin_right = 1920.0
-margin_bottom = 512.0
+margin_bottom = 412.0
 
 [node name="Timer" type="Timer" parent="Vertical/TimerContainer"]
 one_shot = true
@@ -86,4 +94,5 @@ margin_right = 960.0
 margin_bottom = 249.0
 custom_fonts/font = ExtResource( 3 )
 [connection signal="animation_finished" from="VanishAnimations" to="." method="_on_VanishAnimations_animation_finished"]
+[connection signal="pressed" from="Vertical/PauseContainer/VerticalContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="timeout" from="Vertical/TimerContainer/Timer" to="." method="_on_RestartTimer_timeout"]

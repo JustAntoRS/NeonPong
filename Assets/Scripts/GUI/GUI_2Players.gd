@@ -4,7 +4,7 @@ extends MarginContainer
 onready var VanishAnimations : AnimationPlayer = $VanishAnimations
 onready var Player1_ScoreText : Label = $Vertical/ScoreText/Player1
 onready var Player2_ScoreText : Label = $Vertical/ScoreText/Player2
-onready var PauseText : Label = $Vertical/PauseContainer/PauseText
+onready var PauseMenu : Container = $Vertical/PauseContainer
 onready var RestartTimer : Timer = $Vertical/TimerContainer/Timer
 onready var RestartLabel : Label = $Vertical/TimerContainer/Text
 
@@ -39,9 +39,9 @@ func _on_RestartTimer_timeout() -> void:
 	
 #Function called every time the player pause the game 
 func _on_GameManager_pause() -> void:
-	PauseText.visible = !PauseText.visible
+	PauseMenu.visible = !PauseMenu.visible
 	
-	if !PauseText.visible:
+	if !PauseMenu.visible:
 		RestartTimer.start(waitSecs)
 	
 
@@ -52,3 +52,8 @@ func _on_VanishAnimations_animation_finished(anim_name: String) -> void:
 	RestartLabel.text = ""
 	RestartLabel.modulate = Color(1,1,1,1)
 
+
+
+func _on_ExitButton_pressed() -> void:
+	#Temporal, must think about saving high-scores
+	get_tree().quit()
