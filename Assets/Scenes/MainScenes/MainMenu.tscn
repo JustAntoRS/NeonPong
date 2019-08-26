@@ -12,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MainMenu" type="MarginContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 100
@@ -22,7 +21,6 @@ custom_constants/margin_bottom = 60
 script = ExtResource( 1 )
 
 [node name="VerticalContainer" type="VBoxContainer" parent="MainMenu"]
-editor/display_folded = true
 margin_left = 100.0
 margin_top = 60.0
 margin_right = 1820.0

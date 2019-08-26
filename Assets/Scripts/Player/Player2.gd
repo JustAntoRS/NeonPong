@@ -8,19 +8,12 @@ func _process(delta: float) -> void:
 	
 	#Modify the variable with the new position we will move
 	if Input.is_action_pressed("up"):
-		NewPosition -= 1 * Speed
+		NewPosition -= Speed
 	if Input.is_action_pressed("down"):
-		NewPosition += 1 * Speed
+		NewPosition += Speed
 	
 	#Apply the position 
 	position = Vector2(position.x,NewPosition)
 	
-	#Check por screen limits
-	if position.y < player_size.y/2:
-		position.y = player_size.y/2
-	if position.y > screen_size.y - player_size.y / 2:
-		position.y = screen_size.y - player_size.y / 2
-
-
 func _on_2PlayersBall_score() -> void:
 	position = initial_pos

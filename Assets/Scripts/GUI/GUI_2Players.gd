@@ -52,8 +52,7 @@ func _on_VanishAnimations_animation_finished(anim_name: String) -> void:
 	RestartLabel.text = ""
 	RestartLabel.modulate = Color(1,1,1,1)
 
-
-
+#Function called when the Exit button is pressed
 func _on_ExitButton_pressed() -> void:
-	#Temporal, must think about saving high-scores
 	get_tree().quit()
+	#SceneLoader.load_scene("res://Assets/Scenes/MainScenes/MainMenu.tscn")

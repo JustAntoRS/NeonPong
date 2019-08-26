@@ -16,6 +16,13 @@ func _ready() -> void:
 	player_size = $Sprite.get_rect().size * $Sprite.scale
 	initial_pos = position
 	
+func _process(delta: float) -> void:
+	#Check for screen limits
+	if position.y < player_size.y/2:
+		position.y = player_size.y/2
+	if position.y > screen_size.y - player_size.y / 2:
+		position.y = screen_size.y - player_size.y / 2
+	
 func player_size_get():
 	return player_size
 	

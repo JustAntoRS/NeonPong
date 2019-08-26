@@ -19,10 +19,15 @@ func _ready() -> void:
 	PadCollisionSound = $PadCollisionSound
 	ScoreSound = $ScoreSound
 	RestartTimer = $RestartTimer
+	#Set the data on the Singleton
+	DataManager.BallPos = position
 	
 func _process(delta: float) -> void:
 	#Move the ball
 	var Collision : KinematicCollision2D = move_and_collide((Direction * Strength) * delta)
+	#Update the data in the Singleton
+	DataManager.BallPos = position
+	DataManager.BallDir = Direction
 	#Check for collision 
 	if Collision != null:
 		#Check if the object collider it's a pad (the only one with the bounce method)
