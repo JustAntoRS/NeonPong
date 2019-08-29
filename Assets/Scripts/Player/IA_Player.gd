@@ -3,7 +3,8 @@ extends "res://Assets/Scripts/Player/Pad.gd"
 var BallPos : Vector2
 var BallDir : Vector2
 var NewPosition : float
-var margin : int = 300
+var margin : int = 120
+# Easy mode -> margin = 150
 
 func _process(delta: float) -> void:
 	BallPos = DataManager.BallPos
