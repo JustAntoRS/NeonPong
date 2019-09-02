@@ -36,10 +36,9 @@ rotation = 3.14159
 position = Vector2( 960, 540 )
 
 [node name="Players" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Player2" parent="Players" instance=ExtResource( 8 )]
-position = Vector2( 1750, 539 )
+position = Vector2( 1750, 540 )
 
 [node name="Player1" parent="Players" instance=ExtResource( 9 )]
 position = Vector2( 200, 540 )
@@ -58,6 +57,6 @@ margin_right = 1900.0
 margin_bottom = 1060.0
 [connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
 [connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]
-[connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="Players/Player2" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]

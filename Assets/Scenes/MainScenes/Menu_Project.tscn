@@ -7,11 +7,10 @@
 [ext_resource path="res://Assets/Scenes/ResourceScenes/Particles/ScoreAreaBlue.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Area.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/Balls/2PlayersBall.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Scenes/ResourceScenes/Players/Player1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Scenes/ResourceScenes/Players/IA_Player2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Players/IA_Player2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/Players/IA_Player1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/HMargin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/UI/GUI_2Players.tscn" type="PackedScene" id=11]
-
 
 [node name="Main" type="Node2D"]
 
@@ -34,15 +33,15 @@ rotation = 3.14159
 [node name="Area" parent="." instance=ExtResource( 6 )]
 
 [node name="2PlayersBall" parent="." instance=ExtResource( 7 )]
-position = Vector2( 960, 540 )
+position = Vector2( 959, 540 )
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="Player1" parent="Players" instance=ExtResource( 8 )]
-position = Vector2( 200, 540 )
+[node name="IA2" parent="Players" instance=ExtResource( 8 )]
+position = Vector2( 1750, 540 )
 
-[node name="IA" parent="Players" instance=ExtResource( 9 )]
-position = Vector2( 1750, 539 )
+[node name="IA1" parent="Players" instance=ExtResource( 9 )]
+position = Vector2( 200, 540 )
 
 [node name="ScreenMargins" type="Node2D" parent="."]
 editor/display_folded = true
@@ -57,7 +56,7 @@ position = Vector2( 0, 1080 )
 margin_right = 1900.0
 margin_bottom = 1060.0
 [connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
+[connection signal="score" from="2PlayersBall" to="Players/IA1" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/IA2" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]
-[connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
-[connection signal="score" from="2PlayersBall" to="Players/IA" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
