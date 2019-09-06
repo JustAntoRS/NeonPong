@@ -8,7 +8,7 @@ by the computer
 var BallPos : Vector2
 var BallDir : Vector2
 var NewPosition : float
-var margin : int = 50 
+var margin : int = 50
 # Easy -> margin = 150
 # Normal -> margin = 120
 

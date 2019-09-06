@@ -38,7 +38,7 @@ func _on_SoundSlider_gui_input(event: InputEvent) -> void:
 		VolumenChangedSound.play()
 
 func _on_Button_1P_pressed() -> void:
-	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/2Players_IA.tscn")
+	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/1Players_IA.tscn")
 
 func _on_Button_2P_pressed() -> void:
 	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/2Players_Local.tscn")
