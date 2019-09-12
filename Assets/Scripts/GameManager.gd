@@ -27,8 +27,14 @@ func _process(delta: float) -> void:
 
 #Function that checks every time a player score a point if the player has won
 func _on_2PlayersBall_score() -> void:
-	if DataManager.Player1Score > DataManager.waitSecs or DataManager.Player2Score > DataManager.waitSecs :
-		emit_signal("game_over")
+	if DataManager.Player1Score == DataManager.MaxPoints or DataManager.Player2Score == DataManager.MaxPoints :
+		#Set the winner to player 2
+		DataManager.Winner = 2
+		#Check if the winner is the player 1 and if it is, change it
+		if DataManager.Player1Score > DataManager.MaxPoints:
+			DataManager.Winner = 1
+		#Load GameOver Scene
+		SceneLoader.load_scene("res://Assets/Scenes/MainScenes/GameOver_Menu.tscn")
 
 #Function call every time the child Timer node reaches 0
 func _on_Timer_timeout() -> void:
