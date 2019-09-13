@@ -62,12 +62,13 @@ text = "0"
 visible = false
 margin_top = 163.0
 margin_right = 1920.0
-margin_bottom = 485.0
+margin_bottom = 590.0
 
 [node name="VerticalContainer" type="VBoxContainer" parent="Vertical/PauseContainer"]
 margin_left = 577.0
 margin_right = 1342.0
-margin_bottom = 322.0
+margin_bottom = 427.0
+custom_constants/separation = 20
 
 [node name="PauseText" type="Label" parent="Vertical/PauseContainer/VerticalContainer"]
 margin_right = 765.0
@@ -76,9 +77,17 @@ custom_fonts/font = ExtResource( 3 )
 text = "PAUSED"
 
 [node name="ExitButton" parent="Vertical/PauseContainer/VerticalContainer" instance=ExtResource( 4 )]
-margin_top = 253.0
+margin_top = 269.0
 margin_right = 765.0
-margin_bottom = 322.0
+margin_bottom = 338.0
+text = "Exit Game"
+
+[node name="BackButton" type="Button" parent="Vertical/PauseContainer/VerticalContainer"]
+margin_top = 358.0
+margin_right = 765.0
+margin_bottom = 427.0
+custom_fonts/font = ExtResource( 2 )
+text = "Main Menu"
 
 [node name="TimerContainer" type="CenterContainer" parent="Vertical"]
 margin_top = 163.0
@@ -95,4 +104,5 @@ margin_bottom = 249.0
 custom_fonts/font = ExtResource( 3 )
 [connection signal="animation_finished" from="VanishAnimations" to="." method="_on_VanishAnimations_animation_finished"]
 [connection signal="pressed" from="Vertical/PauseContainer/VerticalContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Vertical/PauseContainer/VerticalContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="timeout" from="Vertical/TimerContainer/Timer" to="." method="_on_RestartTimer_timeout"]

@@ -56,3 +56,6 @@ func _on_VanishAnimations_animation_finished(anim_name: String) -> void:
 func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
 	#SceneLoader.load_scene("res://Assets/Scenes/MainScenes/MainMenu.tscn")
+
+func _on_BackButton_pressed() -> void:
+	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/MainMenu.tscn")
