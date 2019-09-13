@@ -15,6 +15,9 @@ var waitSecs : int = 2
 #Max points to win the match (7 by default)
 var MaxPoints : int = 7
 
+#Difficulty Chosen
+var Difficulty : String = "god"
+
 #Ball position
 var BallPos : Vector2 = Vector2(0,0)
 

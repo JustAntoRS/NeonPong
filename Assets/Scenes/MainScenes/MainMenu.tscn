@@ -155,7 +155,6 @@ margin_right = 1720.0
 margin_bottom = 553.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/VerticalContainer/VerticalContainer2/PlayButtons"]
-editor/display_folded = true
 margin_left = 733.0
 margin_right = 987.0
 margin_bottom = 204.0
@@ -168,7 +167,6 @@ custom_fonts/font = ExtResource( 6 )
 text = "Choose number of players"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/VerticalContainer/VerticalContainer2/PlayButtons/VBoxContainer"]
-editor/display_folded = true
 margin_top = 46.0
 margin_right = 254.0
 margin_bottom = 115.0
@@ -199,6 +197,59 @@ margin_bottom = 204.0
 custom_fonts/font = ExtResource( 4 )
 text = "Back"
 
+[node name="DifficultyButtons" type="CenterContainer" parent="GUI/VerticalContainer/VerticalContainer2"]
+visible = false
+margin_top = 349.0
+margin_right = 1720.0
+margin_bottom = 650.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons"]
+margin_left = 625.0
+margin_right = 1095.0
+margin_bottom = 301.0
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer"]
+margin_right = 470.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 4 )
+text = "Select a Difficulty"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer"]
+editor/display_folded = true
+margin_top = 113.0
+margin_right = 470.0
+margin_bottom = 182.0
+custom_constants/separation = 20
+
+[node name="EasyButton" type="Button" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/HBoxContainer"]
+margin_right = 126.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 4 )
+text = "Easy"
+
+[node name="NormalButton" type="Button" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/HBoxContainer"]
+margin_left = 146.0
+margin_right = 323.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 4 )
+text = "Normal"
+
+[node name="HardButton" type="Button" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/HBoxContainer"]
+margin_left = 343.0
+margin_right = 470.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 4 )
+text = "Hard"
+
+[node name="BackDiff" type="Button" parent="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer"]
+margin_top = 232.0
+margin_right = 470.0
+margin_bottom = 301.0
+custom_fonts/font = ExtResource( 4 )
+text = "Back"
+
 [node name="InfoLabel" type="RichTextLabel" parent="GUI/VerticalContainer"]
 margin_top = 846.0
 margin_right = 1720.0
@@ -226,3 +277,7 @@ scroll_active = false
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/PlayButtons/VBoxContainer/HBoxContainer/Button_1P" to="GUI" method="_on_Button_1P_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/PlayButtons/VBoxContainer/HBoxContainer/Button_2P" to="GUI" method="_on_Button_2P_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/PlayButtons/VBoxContainer/BackButton" to="GUI" method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/HBoxContainer/EasyButton" to="GUI" method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/HBoxContainer/NormalButton" to="GUI" method="_on_NormalButton_pressed"]
+[connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/HBoxContainer/HardButton" to="GUI" method="_on_HardButton_pressed"]
+[connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/DifficultyButtons/VBoxContainer/BackDiff" to="GUI" method="_on_BackDiff_pressed"]
