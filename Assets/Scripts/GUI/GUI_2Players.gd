@@ -7,6 +7,7 @@ onready var Player2_ScoreText : Label = $Vertical/ScoreText/Player2
 onready var PauseMenu : Container = $Vertical/PauseContainer
 onready var RestartTimer : Timer = $Vertical/TimerContainer/Timer
 onready var RestartLabel : Label = $Vertical/TimerContainer/Text
+onready var Transition : Node2D = $"../Transition_In"
 
 #variables
 var waitSecs : int = DataManager.waitSecs
@@ -55,7 +56,8 @@ func _on_VanishAnimations_animation_finished(anim_name: String) -> void:
 #Function called when the Exit button is pressed
 func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
-	#SceneLoader.load_scene("res://Assets/Scenes/MainScenes/MainMenu.tscn")
 
 func _on_BackButton_pressed() -> void:
-	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/MainMenu.tscn")
+	DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/MainMenu.tscn"
+	Transition.start_grow()
+

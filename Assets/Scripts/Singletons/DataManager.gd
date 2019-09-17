@@ -10,10 +10,10 @@ var Player2Score : int = 0
 var Winner : int
 
 #Time that the ball is stopped when a point is scored
-var waitSecs : int = 2
+var waitSecs : int = 3
 
 #Max points to win the match (7 by default)
-var MaxPoints : int = 7
+var MaxPoints : int = 1
 
 #Difficulty Chosen
 var Difficulty : String = "god"
@@ -23,3 +23,6 @@ var BallPos : Vector2 = Vector2(0,0)
 
 #Ball direction
 var BallDir : Vector2 = Vector2(0,0)
+
+#Scene to load next
+var sceneToLoad : String 

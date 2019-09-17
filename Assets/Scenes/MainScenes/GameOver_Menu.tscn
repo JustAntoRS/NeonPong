@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Scripts/GUI/GameOver_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Menu_Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Font/UI_font_Big.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Font/UI_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Transition_Out.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Transition_In.tscn" type="PackedScene" id=6]
 
 [node name="GameOver_Menu" type="Control"]
 anchor_right = 1.0
@@ -73,5 +75,9 @@ margin_right = 136.0
 margin_bottom = 158.0
 custom_fonts/font = ExtResource( 4 )
 text = "Exit"
+
+[node name="Transition_Out" parent="." instance=ExtResource( 5 )]
+
+[node name="Transition_In" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="GUI/VBoxContainer/CenterContainer/VBoxContainer/Menu_Button" to="." method="_on_Menu_Button_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/CenterContainer/VBoxContainer/Exit_Button" to="." method="_on_Exit_Button_pressed"]

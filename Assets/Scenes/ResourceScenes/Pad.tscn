@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/Sprites/Game/Pads/Playable/BluePad.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Game/Light/light.png" type="Texture" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 0.184263, 90.7145 )
 
@@ -23,4 +22,3 @@ texture = ExtResource( 2 )
 scale = Vector2( 0.442779, 0.977041 )
 texture = ExtResource( 3 )
 color = Color( 0, 0.788235, 1, 1 )
-

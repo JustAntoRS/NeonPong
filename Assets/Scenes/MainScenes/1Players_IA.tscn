@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Scenes/ResourceScenes/GameManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Background.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Assets/Scenes/ResourceScenes/Players/IA_Player2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/HMargin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Scenes/ResourceScenes/UI/GUI_2Players.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Transition_Out.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Transition_In.tscn" type="PackedScene" id=13]
 
 [node name="Main" type="Node2D"]
 
@@ -55,8 +57,12 @@ position = Vector2( 0, 1080 )
 [node name="GUI_2Players" parent="." instance=ExtResource( 11 )]
 margin_right = 1900.0
 margin_bottom = 1060.0
+
+[node name="Transition_Out" parent="." instance=ExtResource( 12 )]
+
+[node name="Transition_In" parent="." instance=ExtResource( 13 )]
 [connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
-[connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]
-[connection signal="score" from="2PlayersBall" to="Players/IA" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/IA" method="_on_2PlayersBall_score"]

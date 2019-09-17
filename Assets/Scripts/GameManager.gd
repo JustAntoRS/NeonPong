@@ -10,7 +10,9 @@ signal pause
 
 #Nodes
 onready var PauseTimer : Timer = $Timer
-onready var GUI : MarginContainer = get_node("../GUI_2Players")
+onready var GUI : MarginContainer = $"../GUI_2Players"
+onready var Transition : Node2D = $"../Transition_In"
+
 
 func _ready() -> void:
 	#Start the timer so the pause cannot be activated at the start of the game
@@ -34,9 +36,11 @@ func _on_2PlayersBall_score() -> void:
 		if DataManager.Player1Score > DataManager.MaxPoints:
 			DataManager.Winner = 1
 		#Load GameOver Scene
-		SceneLoader.load_scene("res://Assets/Scenes/MainScenes/GameOver_Menu.tscn")
+		DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/GameOver_Menu.tscn"
+		Transition.start_grow()
 
 #Function call every time the child Timer node reaches 0
 func _on_Timer_timeout() -> void:
 	get_tree().paused = false
 	PauseTimer.stop()
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Menu_Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scripts/GUI/MainMenu.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Scenes/ResourceScenes/UI/ExitButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Font/UI_font_little.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/Audio/VolumeChanged.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Transition_In.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Scenes/ResourceScenes/ScenarioResources/Transition_Out.tscn" type="PackedScene" id=9]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -267,6 +269,10 @@ Using Godot Game Engine
 Development Build
 GitHub Repository"
 scroll_active = false
+
+[node name="Transition_In" parent="." instance=ExtResource( 8 )]
+
+[node name="Transition_Out" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/PlayButton" to="GUI" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/OptionsButton" to="GUI" method="Options_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/ExitButton" to="GUI" method="_on_ExitButton_pressed"]

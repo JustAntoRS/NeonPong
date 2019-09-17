@@ -10,8 +10,11 @@ onready var InfoLabel : Control = $VerticalContainer/InfoLabel
 onready var OptionsButtons : OptionButton = $VerticalContainer/VerticalContainer2/OptionsButtons/VBoxContainer/OptionButton
 onready var VolumenChangedSound : AudioStreamPlayer2D = $VerticalContainer/VerticalContainer2/OptionsButtons/VBoxContainer/SoundSlider/Sound
 
+onready var Transition : Node2D = $"../Transition_In"
+
 #Variables
 onready var AudioBusID : int = AudioServer.get_bus_index("Master")
+
 
 func _ready() ->void:
 	OptionsButtons.add_item("FullScreen",0)
@@ -44,7 +47,8 @@ func _on_Button_1P_pressed() -> void:
 	change_panels(DifficultyPanel,PlayersPanel)
 
 func _on_Button_2P_pressed() -> void:
-	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/2Players_Local.tscn")
+	DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/2Players_Local.tscn"
+	Transition.start_grow()
 
 #Function called when the Play and the Back button in the Players Panel are pressed
 func _on_PlayButton_pressed() -> void:
@@ -68,15 +72,20 @@ func change_panels(Panel1 : Control, Panel2: Control) -> void:
 
 func _on_EasyButton_pressed() -> void:
 	DataManager.Difficulty = "easy"
-	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/1Players_IA.tscn")
+	DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/1Players_IA.tscn"
+	Transition.start_grow()
+
 
 func _on_NormalButton_pressed() -> void:
 	DataManager.Difficulty = "normal"
-	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/1Players_IA.tscn")
+	DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/1Players_IA.tscn"
+	Transition.start_grow()
 
 func _on_HardButton_pressed() -> void:
 	DataManager.Difficulty = "hard"
-	SceneLoader.load_scene("res://Assets/Scenes/MainScenes/1Players_IA.tscn")
+	DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/1Players_IA.tscn"
+	Transition.start_grow()
 
 func _on_BackDiff_pressed() -> void:
 	change_panels(PlayersPanel,DifficultyPanel)
+
