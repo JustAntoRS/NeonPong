@@ -13,7 +13,7 @@ var Winner : int
 var waitSecs : int = 3
 
 #Max points to win the match (7 by default)
-var MaxPoints : int = 1
+var MaxPoints : int = 7
 
 #Difficulty Chosen
 var Difficulty : String = "god"

@@ -9,6 +9,7 @@ onready var DifficultyPanel : Control = $VerticalContainer/VerticalContainer2/Di
 onready var InfoLabel : Control = $VerticalContainer/InfoLabel
 onready var OptionsButtons : OptionButton = $VerticalContainer/VerticalContainer2/OptionsButtons/VBoxContainer/OptionButton
 onready var VolumenChangedSound : AudioStreamPlayer2D = $VerticalContainer/VerticalContainer2/OptionsButtons/VBoxContainer/SoundSlider/Sound
+onready var Label_Points : Label = $VerticalContainer/VerticalContainer2/PlayButtons/VBoxContainer/HBoxContainer2/Label
 
 onready var Transition : Node2D = $"../Transition_In"
 
@@ -89,3 +90,11 @@ func _on_HardButton_pressed() -> void:
 func _on_BackDiff_pressed() -> void:
 	change_panels(PlayersPanel,DifficultyPanel)
 
+func _on_minus_button_pressed() -> void:
+	DataManager.MaxPoints -= 1
+	Label_Points.text = str(DataManager.MaxPoints)
+
+
+func _on_plus_button_pressed() -> void:
+	DataManager.MaxPoints += 1
+	Label_Points.text = str(DataManager.MaxPoints)
