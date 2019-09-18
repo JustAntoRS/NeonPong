@@ -34,7 +34,7 @@ script = ExtResource( 2 )
 margin_left = 100.0
 margin_top = 60.0
 margin_right = 1820.0
-margin_bottom = 1178.0
+margin_bottom = 1020.0
 custom_constants/separation = 250
 
 [node name="VerticalContainer2" type="VBoxContainer" parent="GUI/VerticalContainer"]
@@ -297,7 +297,7 @@ text = "Back"
 [node name="InfoLabel" type="RichTextLabel" parent="GUI/VerticalContainer"]
 margin_top = 846.0
 margin_right = 1720.0
-margin_bottom = 1118.0
+margin_bottom = 960.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 6 )
@@ -315,7 +315,6 @@ scroll_active = false
 [node name="Transition_In" parent="." instance=ExtResource( 8 )]
 
 [node name="Transition_Out" parent="." instance=ExtResource( 9 )]
-visible = false
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/PlayButton" to="GUI" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/OptionsButton" to="GUI" method="Options_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/ExitButton" to="GUI" method="_on_ExitButton_pressed"]

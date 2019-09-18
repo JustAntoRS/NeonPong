@@ -17,6 +17,9 @@ onready var Transition : Node2D = $"../Transition_In"
 func _ready() -> void:
 	#Start the timer so the pause cannot be activated at the start of the game
 	PauseTimer.start(DataManager.waitSecs)
+	#Reset basic data
+	DataManager.Player1Score = 0
+	DataManager.Player2Score = 0
 	
 func _process(delta: float) -> void:
 	if  PauseTimer.is_stopped() and Input.is_action_just_pressed("Pause") and !GUI.RestartTimeOn:
@@ -33,7 +36,7 @@ func _on_2PlayersBall_score() -> void:
 		#Set the winner to player 2
 		DataManager.Winner = 2
 		#Check if the winner is the player 1 and if it is, change it
-		if DataManager.Player1Score > DataManager.MaxPoints:
+		if DataManager.Player1Score == DataManager.MaxPoints:
 			DataManager.Winner = 1
 		#Load GameOver Scene
 		DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/GameOver_Menu.tscn"

@@ -9,8 +9,6 @@ var BallPos : Vector2
 var BallDir : Vector2
 var NewPosition : float
 var margin : int
-# Easy -> margin = 150
-# Normal -> margin = 120
 
 func _ready() -> void:
 	if DataManager.Difficulty == "easy":
@@ -19,7 +17,7 @@ func _ready() -> void:
 		margin = 120
 	elif DataManager.Difficulty == "hard":
 		margin = 110
-	else:
+	else: #god difficulty for background
 		margin = 50
 
 func _process(delta: float) -> void:

@@ -22,6 +22,8 @@ func _ready() ->void:
 	OptionsButtons.add_item("Window",1)
 	#Set the difficulty to god for the background
 	DataManager.Difficulty == "god"
+	#Reset basic data
+	DataManager.MaxPoints = 7
 	
 func _on_ExitButton_pressed() -> void:
 	#Temporal, must think about saving high-scores
@@ -91,8 +93,9 @@ func _on_BackDiff_pressed() -> void:
 	change_panels(PlayersPanel,DifficultyPanel)
 
 func _on_minus_button_pressed() -> void:
-	DataManager.MaxPoints -= 1
-	Label_Points.text = str(DataManager.MaxPoints)
+	if DataManager.MaxPoints > 1:
+		DataManager.MaxPoints -= 1
+		Label_Points.text = str(DataManager.MaxPoints)
 
 
 func _on_plus_button_pressed() -> void:

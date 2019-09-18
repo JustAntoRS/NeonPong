@@ -58,6 +58,9 @@ func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
 
 func _on_BackButton_pressed() -> void:
+	#Deactivate pause
+	get_tree().paused = false
+	#Load main Menu
 	DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/MainMenu.tscn"
 	Transition.start_grow()
 
