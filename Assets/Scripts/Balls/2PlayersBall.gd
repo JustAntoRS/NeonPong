@@ -27,7 +27,8 @@ func reset() -> void:
 		position = screen_size / 2
 		#Set the timer
 		RestartTimer.start(DataManager.waitSecs)
-		#Stop the ball 
+		#Stop the ball and reset Strength
+		Strength = 1000
 		stop()
 		#Emit the signal
 		emit_signal("score")

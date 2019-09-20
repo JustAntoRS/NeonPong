@@ -57,5 +57,5 @@ margin_right = 1900.0
 margin_bottom = 1060.0
 [connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
 [connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
-[connection signal="score" from="2PlayersBall" to="Players/IA2" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/IA2" method="_on_2PlayersBall_score"]
