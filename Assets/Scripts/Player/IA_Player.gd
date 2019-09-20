@@ -4,13 +4,15 @@ extends "res://Assets/Scripts/Player/Pad.gd"
 Script that defines a generic implementation of a player controlled
 by the computer    
 """
-
+#Variables
 var BallPos : Vector2
 var BallDir : Vector2
 var NewPosition : float
 var margin : int
 
 func _ready() -> void:
+	
+	#Set difficulty
 	if DataManager.Difficulty == "easy":
 		margin = 150
 	elif DataManager.Difficulty == "normal":
@@ -21,9 +23,16 @@ func _ready() -> void:
 		margin = 50
 
 func _process(delta: float) -> void:
+	#Synchronize the position and movement vector
 	BallPos = DataManager.BallPos
 	BallDir = DataManager.BallDir
-	
+
+"""
+Function that moves the pad depending of the position and movement vector
+of the ball
+
+This is a basic and not very functional implementation
+"""
 func move() -> void:
 	NewPosition = position.y
 	
@@ -34,6 +43,7 @@ func move() -> void:
 	
 	position.y = NewPosition
 
+#Function that resets de pad position every point 
 func _on_2PlayersBall_score() -> void:
 	position = initial_pos
 

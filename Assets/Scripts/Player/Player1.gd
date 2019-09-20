@@ -2,7 +2,7 @@ extends "res://Assets/Scripts/Player/Pad.gd"
 
 var NewPosition : float 
 
-# warning-ignore:unused_argument
+
 func _process(delta: float) -> void:
 	#Set new position to the actual position of the pad (y axis only)
 	NewPosition = position.y
