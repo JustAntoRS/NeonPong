@@ -63,6 +63,6 @@ margin_bottom = 1060.0
 [node name="Transition_In" parent="." instance=ExtResource( 13 )]
 [connection signal="pause" from="GameManager" to="GUI_2Players" method="_on_GameManager_pause"]
 [connection signal="score" from="2PlayersBall" to="GameManager" method="_on_2PlayersBall_score"]
-[connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="GUI_2Players" method="_on_2PlayersBall_score"]
+[connection signal="score" from="2PlayersBall" to="Players/Player1" method="_on_2PlayersBall_score"]
 [connection signal="score" from="2PlayersBall" to="Players/IA" method="_on_2PlayersBall_score"]

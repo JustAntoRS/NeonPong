@@ -124,6 +124,7 @@ size_flags_vertical = 3
 min_value = -1.0
 max_value = 10.0
 value = 10.0
+ticks_on_borders = true
 focus_mode = 1
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="GUI/VerticalContainer/VerticalContainer2/OptionsButtons/VBoxContainer/SoundSlider"]
@@ -319,7 +320,6 @@ scroll_active = false
 [node name="Transition_In" parent="." instance=ExtResource( 8 )]
 
 [node name="Transition_Out" parent="." instance=ExtResource( 9 )]
-visible = false
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/PlayButton" to="GUI" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/OptionsButton" to="GUI" method="Options_pressed"]
 [connection signal="pressed" from="GUI/VerticalContainer/VerticalContainer2/InitialButtons/VBoxContainer/ExitButton" to="GUI" method="_on_ExitButton_pressed"]

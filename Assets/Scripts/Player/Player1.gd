@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		NewPosition += Speed
 	
 	#Apply the position 
-	position = Vector2(position.x,NewPosition)
+	position.y = NewPosition
 
 func _on_2PlayersBall_score() -> void:
 	position = initial_pos

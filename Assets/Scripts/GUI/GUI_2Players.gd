@@ -58,6 +58,8 @@ func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
 
 func _on_BackButton_pressed() -> void:
+	#Set difficulty to god so the background cannot crash
+	DataManager.Difficulty = "god"
 	#Deactivate pause
 	get_tree().paused = false
 	#Load main Menu

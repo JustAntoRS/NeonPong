@@ -13,6 +13,9 @@ onready var PauseTimer : Timer = $Timer
 onready var GUI : MarginContainer = $"../GUI_2Players"
 onready var Transition : Node2D = $"../Transition_In"
 
+#Variables
+var maxPoints : int
+
 
 func _ready() -> void:
 	#Start the timer so the pause cannot be activated at the start of the game
@@ -20,6 +23,11 @@ func _ready() -> void:
 	#Reset basic data
 	DataManager.Player1Score = 0
 	DataManager.Player2Score = 0
+	# Make sure that is immpossible to win in the background scene (crash if it happens)
+	if DataManager.Difficulty == "god":
+		maxPoints = 99999
+	else:
+		maxPoints = DataManager.MaxPoints
 	
 func _process(delta: float) -> void:
 	if  PauseTimer.is_stopped() and Input.is_action_just_pressed("Pause") and !GUI.RestartTimeOn:
@@ -32,12 +40,14 @@ func _process(delta: float) -> void:
 
 #Function that checks every time a player score a point if the player has won
 func _on_2PlayersBall_score() -> void:
-	if DataManager.Player1Score == DataManager.MaxPoints or DataManager.Player2Score == DataManager.MaxPoints :
+	if DataManager.Player1Score == maxPoints or DataManager.Player2Score == maxPoints :
 		#Set the winner to player 2
 		DataManager.Winner = 2
 		#Check if the winner is the player 1 and if it is, change it
 		if DataManager.Player1Score == DataManager.MaxPoints:
 			DataManager.Winner = 1
+		#Set difficulty to god again for the background 
+		DataManager.Difficulty = "god"
 		#Load GameOver Scene
 		DataManager.sceneToLoad = "res://Assets/Scenes/MainScenes/GameOver_Menu.tscn"
 		Transition.start_grow()

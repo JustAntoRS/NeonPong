@@ -12,7 +12,7 @@ var Winner : int
 #Time that the ball is stopped when a point is scored
 var waitSecs : int = 3
 
-#Max points to win the match (7 by default)
+#Max points to win the match
 var MaxPoints : int = 7
 
 #Difficulty Chosen

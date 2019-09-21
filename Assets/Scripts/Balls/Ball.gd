@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		#Check if the object collider it's a pad (the only one with the bounce method)
 		if  Collision.collider.has_method("bounce"):
 			#Update Strength
-			Strength += 50
+			Strength += 25
 			#Play Hit Pad Sound only if it's not already playing
 			if !PadCollisionSound.is_playing():
 				PadCollisionSound.play()

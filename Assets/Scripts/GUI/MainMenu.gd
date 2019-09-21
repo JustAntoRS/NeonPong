@@ -23,8 +23,6 @@ func _ready() ->void:
 	OptionsButtons.add_item("Window",1)
 	#Set the difficulty to god for the background
 	DataManager.Difficulty == "god"
-	#Reset basic data
-	DataManager.MaxPoints = 7
 	
 func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
@@ -51,6 +49,8 @@ func _on_SoundSlider_gui_input(event: InputEvent) -> void:
 
 #Function called when the Play and the Back button in the Players Panel are pressed
 func _on_PlayButton_pressed() -> void:
+	#Set max points to default value again
+	DataManager.MaxPoints = 7
 	change_panels(PlayersPanel,InitialPanel)
 
 #Function called when the Options and the Back button in the Options Panel are pressed
