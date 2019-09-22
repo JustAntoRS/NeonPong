@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="NeonPong"
 run/main_scene="res://Assets/Scenes/MainScenes/MainMenu.tscn"
+boot_splash/image="res://Assets/Sprites/GodotLogo/logo.png"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
