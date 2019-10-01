@@ -309,11 +309,9 @@ custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
 bbcode_text = "Created by Antonio Ramirez Solans ([url=https://justantors.itch.io/]@JustAntoRS[/url])
 Using Godot Game Engine
-Development Build
 [url=https://github.com/JustAntoRS/NeonPong]GitHub Repository[/url]"
 text = "Created by Antonio Ramirez Solans (@JustAntoRS)
 Using Godot Game Engine
-Development Build
 GitHub Repository"
 scroll_active = false
 
